@@ -1,0 +1,71 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    ;
+}
+
+.headpic {
+    width: 100%;
+}
+
+nav {
+    user-select: none;
+    background-color: rgba(240, 248, 255, 0);
+    width: 100% !important;
+}
+
+header {
+    user-select: none;
+    background-color: red;
+    background-image: url("https://cdn.discordapp.com/attachments/1240281555109281846/1241348852792033340/FEBE7FB68E9E7AE6E4EAB97DFBD4F7972C5260EF.png?ex=6649dfb5&is=66488e35&hm=b2da6e1c7e66959bc118067e938cdd04ec5ace5c5b13357a0b0ac5e9108f89f3&");
+    width: 100%;
+}
+
+* {
+    font-family: "Poppins";
+
+}
+
+.logo {
+    width: 50px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bi-arrow-right {
+
+    display: inline-block;
+}
+
+.arrow:hover {
+    .bi-arrow-right {
+        rotate: 390deg;
+        transition: 0.3s;
+    }
+}
+.arrow:not(:hover) {
+    .bi-arrow-right {
+        rotate: -360deg;
+        transition: 0.3s;
+    }
+}
+*{
+    transition: 0.1s;
+}
+.description{
+    height: 200px;
+    padding: 40px 0px 40px 0px;
+}
+.picture{
+    transition: transform .4s;
+}
+.picture:hover {
+    transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  
