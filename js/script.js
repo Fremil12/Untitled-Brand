@@ -25,14 +25,20 @@ window.onresize=function(){
 
 
 
-document.querySelector(".logo").addEventListener("click", function () {
-    if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
-        document.documentElement.setAttribute('data-bs-theme', 'light')
-    } else {
-        document.documentElement.setAttribute('data-bs-theme', 'dark')
+document.querySelector(".logo").addEventListener("click",function(){
+    if(document.querySelector(".logo").classList.contains("easteregg")){
+        document.querySelector(".logo").classList.remove("easteregg");
     }
-});
+    else{
+    document.querySelector(".logo").classList.add("easteregg");
+}});
 
-document.querySelector(".bi-arrow-right").addEventListener("click", function () {
-    this.classList.toggle("spin");
-});
+document.querySelector(".bi-list").addEventListener("click",function() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  });
+  
+  document.querySelector(".closebtn").addEventListener("click",function() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  });

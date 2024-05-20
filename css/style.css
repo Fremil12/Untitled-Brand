@@ -2,7 +2,7 @@ html,
 body {
     padding: 0px;
     margin: 0px;
-    ;
+    
 }
 
 .headpic {
@@ -17,20 +17,29 @@ nav {
 
 header {
     user-select: none;
-    background-color: red;
-    background-image: url("https://cdn.discordapp.com/attachments/1240281555109281846/1241348852792033340/FEBE7FB68E9E7AE6E4EAB97DFBD4F7972C5260EF.png?ex=6649dfb5&is=66488e35&hm=b2da6e1c7e66959bc118067e938cdd04ec5ace5c5b13357a0b0ac5e9108f89f3&");
+    background-image: url("/images/1690970245-inside-nigerias-booming-streetwear-renaissance-07.png");
     width: 100%;
+    height: auto;
+    height: 50vw;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 30px;
+    
 }
 
 * {
     font-family: "Poppins";
     transition: 0.1s;
     scrollbar-width: none;
-
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .logo {
-    width: 50px;
+    width: 10vw;
+
+
 }
 
 .center {
@@ -78,6 +87,73 @@ header {
 .bg-green{
     background-color: #182c24;
 }
+.font-green{
+    color: #34614f;
+    font-weight: bold;
+
+}
 .bg-yellow{
     background: #f0f4d4;
 }
+.easteregg{
+    rotate: -3000deg;
+    transition: 5s;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/*sidenav*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  main {
+    transition: margin-left .5s;
+
+  }
+  
+
+  
