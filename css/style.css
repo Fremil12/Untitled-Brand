@@ -2,7 +2,6 @@ html,
 body {
     padding: 0px;
     margin: 0px;
-    
 }
 
 .headpic {
@@ -17,7 +16,6 @@ nav {
 
 header {
     user-select: none;
-    background-image: url("/images/1690970245-inside-nigerias-booming-streetwear-renaissance-07.png");
     width: 100%;
     height: auto;
     height: 50vw;
@@ -27,7 +25,13 @@ header {
     font-size: 30px;
     
 }
+.index-bg{
+    background-image: url("/images/1690970245-inside-nigerias-booming-streetwear-renaissance-07.png");
 
+}
+.product-bg{
+ background-image: url("/images/headerPicture.jpg");
+}
 * {
     font-family: "Poppins";
     transition: 0.1s;
@@ -75,7 +79,7 @@ header {
 .picture{
     transition: transform .4s;
 }
-.picture:hover {
+.picture:hover{
     transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
   }
 .icon-continer{
@@ -102,6 +106,10 @@ header {
 
 .clickable{
     cursor: pointer;
+}
+
+.sizeChange:hover{
+    transform: scale(1.05);
 }
 
 a{
