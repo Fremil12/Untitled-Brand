@@ -117,6 +117,10 @@ a{
     color: white;
 }
 
+.link2{
+    color: #182c24;
+}
+
 /*sidenav*/
 .sidenav {
     height: 100%;
@@ -164,4 +168,47 @@ a{
   }
   
 
+.icon{
+    max-width:150px;
+}
+
+
+.btn-green{
+    display: inline-block;
+    cursor: pointer;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #182c24;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0 9px #999;
+}
+
+.btn-green:hover{
+    background-color: #34614f;
+    color: #fff;
+    transform: scale(1.05);
+    transition: .1s;
+}
+
+.btn-green:active{
+    background-color: #182c24 !important;
+    box-shadow: 0 5px #666 !important;
+    transform: translateY(4px) !important;
+    color: #fff !important;
+}
+
+input,textarea{
+    border-radius: 5px !important;
+    font-size: small !important;
+}
+
+input:focus, textarea:focus{
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem #34614f !important;
+    border-color: #34614f !important; 
+}
   
