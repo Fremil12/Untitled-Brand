@@ -14,6 +14,8 @@
     id <input type="text" class="id"><br>
 
     <input type="button" value="add" class="add">
+    <input type="button" value="add with id" class="adddatawithid">
+
     <input type="button" value="get" class="get">
     <input type="button" value="update" class="update">
 
@@ -21,6 +23,12 @@
 
     <input type="button" value="getall" class="getall">
 
+    <div class="one">
+
+    </div>
+    <div class="all">
+
+    </div>
 
 
 
@@ -28,135 +36,8 @@
 
 
 
-
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-        import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, onSnapshot, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAq7OU5i2WgamVcWwXtvLTjP20L5449HJo",
-            authDomain: "prrrr-b7e19.firebaseapp.com",
-            projectId: "prrrr-b7e19",
-            storageBucket: "prrrr-b7e19.appspot.com",
-            messagingSenderId: "739124303183",
-            appId: "1:739124303183:web:7058f38824dbedc6b3613a"
-        };
-
-        // Initialize Firebase
-        initializeApp(firebaseConfig);
-
-        const db = getFirestore();
-        let colRef = collection(db, "datas");
-
-        let name;
-        let data;
-        let data2;
-        let id;
-        //writing data
-        function addData() {
-            name = document.querySelector(".name").value;
-            data = document.querySelector(".data").value;
-            data2 = document.querySelector(".data2").value;
-            addDoc(colRef,
-                {
-                    name: name,
-                    data: data,
-                    data2: data2,
-                }
-            )
-                .then(function (docRef) {
-                    console.log("Document written with ID", docRef.id)
-                })
-                .catch(function (error) {
-                    console.error("Error adding document", error)
-                })
-        }
-
-        //get data
-        function getData() {
-            const docRef = doc(db, "datas", id);
-            onSnapshot(docRef, (doc) => {
-                console.log(doc.data(), doc.id);
-            });
-
-        }
-        //update data
-        function updateData() {
-            name = document.querySelector(".name").value;
-            data = document.querySelector(".data").value;
-            data2 = document.querySelector(".data2").value;
-
-            const docRef = doc(db, "datas", id);
-            updateDoc(docRef, {
-                name: name,
-                data: data,
-                data2: data2,
-            })
-
-
-        }
-
-        //delete data
-        function deleteData() {
-            const docRef = doc(db, "datas", id)
-            deleteDoc(docRef)
-                .then(function () {
-                    console.log("Document deleted with ID", id)
-                })
-        }
-
-
-        //get all data
-
-
-        function  getAll() {
-            getDocs(colRef)
-            .then((querySnapshot) => {
-                let datas = []
-                querySnapshot.docs.forEach((doc) => {
-                    datas.push({ ...doc.data(), id: doc.id })
-                })
-                console.log(datas)
-                for(let i=0;i<datas.length;i++){
-                    document.querySelector("body").innerHTML+=datas[i].name+" "+datas[i].data+" "+datas[i].data2+"<br>";
-                }
-                
-
-            })
-            .catch((error) => {
-                console.error("Error getting documents:", error);
-            });
-        }
-
-
-        //buttons
-        document.querySelector(".add").addEventListener("click", function () {
-            addData();
-        })
-        document.querySelector(".get").addEventListener("click", function () {
-            id = document.querySelector(".id").value;
-            getData();
-        })
-        document.querySelector(".update").addEventListener("click", function () {
-            id = document.querySelector(".id").value;
-            updateData();
-        })
-
-        document.querySelector(".delete").addEventListener("click", function () {
-            id = document.querySelector(".id").value;
-            deleteData();
-        })
-
-        document.querySelector(".getall").addEventListener("click", function () {
-            getAll();
-        })
-
-
-
+    <script type="module" src="test.js">
+       
     </script>
 </body>
 
