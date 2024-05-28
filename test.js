@@ -134,7 +134,7 @@ onSnapshot(colRef, (querySnapshot) => {
   console.log(datas);
   document.querySelector(".all").innerHTML = "<br><br>"; // Clear previous data
   for (let i = 0; i < datas.length; i++) {
-    document.querySelector(".all").innerHTML += datas[i].name + " " + datas[i].data + " " + datas[i].data2 + "<br>";
+    document.querySelector(".all").innerHTML += datas[i].name + " " + datas[i].data + " " + datas[i].data2 +" - "+datas[i].id+"<br>";
   }
 }, (error) => {
   console.error("Error getting documents:", error);
