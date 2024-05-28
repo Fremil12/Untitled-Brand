@@ -1,8 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, onSnapshot, updateDoc,setDoc} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAq7OU5i2WgamVcWwXtvLTjP20L5449HJo",
   authDomain: "prrrr-b7e19.firebaseapp.com",
@@ -43,9 +41,9 @@ function addDataWithId() {
   name = document.querySelector(".name").value;
   data = document.querySelector(".data").value;
   data2 = document.querySelector(".data2").value;
-  id = document.querySelector(".id").value; // Get the ID from input
+  id = document.querySelector(".id").value; 
 
-  const docRef = doc(db, "datas", id); // Create a document reference with the specified ID
+  const docRef = doc(db, "datas", id);
   setDoc(docRef, {
     name: name,
     data: data,
@@ -139,6 +137,7 @@ onSnapshot(colRef, (querySnapshot) => {
 }, (error) => {
   console.error("Error getting documents:", error);
 });
+
 
 
 document.querySelector(".add").addEventListener("click", function () {
