@@ -18,8 +18,11 @@
         href="https://fonts.googleapis.com/css2?family=Knewave&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <style>
-        .uploadedImg {
+        .uploadedImg{
             width: 500px;
+        }
+        .small{
+            width: 200px;
         }
     </style>
 </head>
@@ -31,34 +34,33 @@
         <p>price <input type="text" class="price"></p>
         <p>id <input type="text" class="id"></p>
 
-        <input type="button" value="add" class="add">
-        <input type="button" value="add with id" class="adddatawithid">
-    
-        <input type="button" value="get" class="get">
-        <input type="button" value="update" class="update">
-    
-        <input type="button" value="delete" class="delete">
-    
-        <input type="button" value="getall" class="getall">
-
-    </div>
-    <div class="one bg-secondary-subtle p-2">
-        <p>Egy adat: </p>
-    </div>
-
-
-    <div class="all bg-secondary p-2">
-
-    </div>
-    <div class="p-2">
-        <label for="">Image name</label><input type="text" class="namebox"><label class="extlab"></label><br>
+        <label for="">Image name</label><input type="text" class="namebox"><label class="extlab"></label><br><br>
         <img class="uploadedImg rounded"><label class="upProgress"></label><br>
         <button class="selbtn">Select Image</button>
         <button class="upbtn">Upload Image</button>
         <button class="downbtn">Retrieve Image</button>
+        <br>
+
+
+
+        <br><br>
+        <input type="button" value="add + upload img" class="addwithimg">
+        <input type="button" value="delete" class="delete">
+
+
 
     </div>
-    <script type="module" src="test.js">
+    <div class="all bg-secondary p-2">
+
+    </div>
+
+
+
+
+
+
+
+    <script type="module" src="test2.js">
 
     </script>
 </body>
