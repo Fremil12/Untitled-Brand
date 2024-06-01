@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vide</title>
-    <link rel="icon" type="image/x-icon" href="images/videlogocolored.png">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="../images/videlogocolored.png">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="aloldalak.css">
     <!--icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -21,26 +22,26 @@
 </head>
 
 <body>
+
     <div id="mySidenav" class="sidenav">
-        
         <a href="javascript:void(0)" class="closebtn">&times;</a>
-        <a><img src="./images/videLogo.png" alt=""></a>  
-        <a href="index.html">Főoldal</a>
-        <a href="product.html">Termékek</a>
+        <a href="../index.html">Főoldal</a>
+        <a href="../product.html">Termékek</a>
         <a href="#">Új kollekciók</a>
         <a href="#">Rólunk</a>
-        <a href="#">Kapcsolatfelvétel</a>
+        <a href="../kapcsolatfelvetel.html">Kapcsolatfelvétel</a>
     </div>
-    <header class="product-bg">
+    <header class="index-bg">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg ">
                 <div class="container-fluid">
                     <h2><i class="bi bi-list bi-lg bi-10x clickable"></i></h2>
-                    <a href="index.html"><img class="logo clickable" src="./images/videLogo.png" alt="videLogo"></a>
+                    <img class="logo clickable" src="../images/videLogo.png" alt="videLogo">
                     <p class="arrow clickable fs-5"><i class="bi bi-arrow-right"></i>Kapcsolat</p>
                 </div>
+            </nav>
+
         </div>
-        </nav>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3"></div>
@@ -50,67 +51,299 @@
 
     </header>
 
-    <body>
-        <section class="container mt-5 pt-5">
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-fluid" src="" alt="">
-                    <p>Leírás</p>
-                    <div class="w-50 pr-5">
-                    <p class="d-flex justify-content-end mr-5">Ár</p>
-                </div>
+    <main class="p-5">
+        <div class="newItems">
 
+            <div></div>
+            <div></div>
+        </div>
+        <div class="">
+            <div>
+                <label for="">Admin felület</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input admin-switch" type="checkbox" role="switch"> 
+                    <span  class="ms-5 font-green fs-5 plus-button-container"></span>
                 </div>
-                <div class="col-md-6">
-                    <img class="img-fluid" src="" alt="">
-                </div>
+               
             </div>
-        </section>
+        </div>
+        <div class="mainpage">
 
-    </body>
-    <script src="js/nav.js"></script>
-</body>
-<footer class="bg-green text-white">
-    <div class="container-fluid">
-        <div class="row py-5">
-            <div class="col-md-4 px-5"><img class="img-fluid clickable" src="images/videlogocolored.png" alt="">
+            <div class="sidebar">
+                <p class="sidebarItems minden sidebarSelected">Összes termék</p>
+                <p class="sidebarItems bestSellers">Bestsellers</p>
+                <p class="sidebarItems ujTermekek">Új termékek</p>
+                <p class="sidebarItems polok">Pólók</p>
+                <p class="sidebarItems puloverek">Pulóverek</p>
+                <p class="sidebarItems cipok">Cipók</p>
+                <p class="sidebarItems sapkak">Sapkák</p>
+                <p class="sidebarItems kiegeszitok">Kiegészítők</p>
+
             </div>
-            <div class="col-md-4 d-flex justify-content-center text-center">
-                <div class="w-50">
-                    <a href="index.html"><img class="img-fluid w-50 clickable" src="images/videLogo.png" alt=""></a>
-                    <p>Vide Design</p>
+            <div class="mainContent">
+                <div class="sorting">
+                    <h2 class="category-label">Bestsellers</h2>
+
                 </div>
-            </div>
-            <div class="col-md-4">
-                <p>
-                    <a class="clickable sizeChange" href="index.html">Főoldal</a> <br>
-                    <a class="clickable sizeChange" href="product.html">Termékek</a> <br>
-                    <a class="clickable sizeChange">Új kollekció</a> <br>
-                    <a class="clickable sizeChange">Rólunk</a> <br>
-                    <a class="clickable sizeChange">Kapcsolatfelvétel</a> <br>
-                </p>
+                <div class="container-fluid">
+                    <div class="shop row center">
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="">
+                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="">
+                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="">
+                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="">
+                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="">
+                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="">
+                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden polok ">
 
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
 
-                <p>Info@videdesign.com <br>
-                    Tel: +36 30 81240@~ <br>
-                    Fő út 12 <br>
+                        </div>
+                        <div class="shopItem col-md-3 minden  polok ">
 
-                    Tiszanekeresd, 69420 <br>
-                </p>
-                <a href="aszf.html"><p class="clickable  sizeChange">ÁSZF</p></a>
-                
-                <div class="fs-4">
-                    <a href="https://www.instagram.com/csajbokattila/" target="_blank"
-                        rel="noopener noreferrer"><i class="bi bi-instagram clickable  sizeChange"></i></a>
-                    <a href="https://www.facebook.com/attila.kolozsvary" target="_blank"
-                        rel="noopener noreferrer"><i class="bi bi-facebook mx-4 clickable  sizeChange"></i></a>
-                    <i class="bi bi-linkedin clickable"></i>
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="shopItem col-md-3 minden  polok ">
+
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="shopItem col-md-3 minden  polok ">
+
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="shopItem col-md-3 minden  polok ">
+
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="shopItem col-md-3 minden  polok ">
+
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="shopItem col-md-3 minden  polok ">
+
+                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <div class="buttons">
+                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                            type="button">Megveszem</button></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
+    </main>
+
+    <footer class="bg-green text-white">
+        <div class="container-fluid">
+            <div class="row py-5">
+                <div class="col-md-4 px-5"><img class="img-fluid clickable" src="../images/videlogocolored.png" alt="">
+                </div>
+                <div class="col-md-4 d-flex justify-content-center text-center">
+                    <div class="w-50">
+                        <img class="img-fluid w-50 clickable" src="../images/videLogo.png" alt="">
+                        <p>Vide design</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <a class="clickable sizeChange">Főoldal</a> <br>
+                        <a class="clickable sizeChange">Our Services</a> <br>
+                        <a class="clickable sizeChange">Project Spotlight</a> <br>
+                        <a class="clickable sizeChange">About Us</a> <br>
+                        <a class="clickable sizeChange">Contact</a> <br>
+                    </p>
+
+
+                    <p>Info@videdesign.com <br>
+                        Tel: +36 30 81240@~ <br>
+                        Fő út 12 <br>
+
+                        Tiszanekeresd, 69420 <br>
+                    </p>
+                    <a href="../aszf.html">
+                        <p class="clickable  sizeChange">ÁSZF</p>
+                    </a>
+
+                    <div class="fs-4">
+                        <a href="https://www.instagram.com/csajbokattila/" target="_blank" rel="noopener noreferrer"><i
+                                class="bi bi-instagram clickable  sizeChange"></i></a>
+                        <a href="https://www.facebook.com/attila.kolozsvary" target="_blank"
+                            rel="noopener noreferrer"><i class="bi bi-facebook mx-4 clickable  sizeChange"></i></a>
+                        <i class="bi bi-linkedin clickable"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    
+  
+  <!-- Modal -->
+  <div class="modal fade add-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="exampleModalLabel">Elem hozzáadása</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Közlés</button>
+        </div>
+      </div>
     </div>
-</footer>
+  </div>
 
 
+
+          
+    <script>
+
+        //szín generátor
+        document.addEventListener('DOMContentLoaded', () => {
+            const shopItems = document.querySelectorAll('.shopitemImage');
+
+            shopItems.forEach(item => {
+                const randomDegree = Math.floor(Math.random() * 360);
+                item.style.filter = `hue-rotate(${randomDegree}deg)`;
+            });
+        });
+        
+    </script>
+
+    <script src="../js/nav.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</body>
 
 </html>
