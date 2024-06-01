@@ -321,3 +321,43 @@ input:focus, textarea:focus{
 .hidden {
     display: none;
 }
+
+
+.modalMain1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+}
+
+.modalMain2{
+    padding: 0px 10px   ;
+}
+
+.modal-body form{
+    padding-top: 140px;
+}
+
+.modal-body{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+
+}
+
+.modalImage{
+    height: 500px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+
+.uploadDiv{
+    display: grid;
+    grid-template-columns: auto 140px auto;
+    text-align: center;
+}
+
+.ellenorzes{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto 140px auto;
+    text-align: center;
+}

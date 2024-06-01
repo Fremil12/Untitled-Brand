@@ -60,6 +60,40 @@
         <div class="">
             <div>
                 <label for="">Admin felület</label>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                      Szerkesztés
+                    </button>
+                    <form class="dropdown-menu p-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="flotatingName" placeholder="A ruhanem neve">
+                            <label for="flotatingName">Név</label>
+                          </div>
+                          <div class="form-floating">
+                            <input type="number" class="form-control" id="flotatingPrice" placeholder="A ruhanem ára">
+                            <label for="flotatingPrice">Ár</label>
+                            <br>
+                          </div>
+                              <select class="form-select" aria-label="Default select example" required>
+                                <option selected>Kategóriák</option>
+                                <option value="bestSellers">Best seller</option>
+                                <option value="ujTermekek">Új termékek</option>
+                                <option value="polok">Pólok</option>
+                                <option value="puloverek">Pulóverek</option>
+                                <option value="nadragok">Nadrágok</option>
+                                <option value="cipok">Cipók</option>
+                                <option value="sapkak">Sapkák</option>
+                                <option value="kiegeszitok">Kiegészítők</option>
+                              </select>
+                              <br>
+                              <button type="submit" class="btn btn-success">Szerkesztés</button>
+                            </div>
+                        </div>
+                        
+                      </div>
+
+                    </form>
+                  </div>
                 <div class="form-check form-switch">
                     <input class="form-check-input admin-switch" type="checkbox" role="switch"> 
                     <span  class="ms-5 font-green fs-5 plus-button-container"></span>
@@ -76,6 +110,7 @@
                 <p class="sidebarItems polok">Pólók</p>
                 <p class="sidebarItems puloverek">Pulóverek</p>
                 <p class="sidebarItems cipok">Cipók</p>
+                <p class="sidebarItems nadragok">Nadrágok</p>
                 <p class="sidebarItems sapkak">Sapkák</p>
                 <p class="sidebarItems kiegeszitok">Kiegészítők</p>
 
@@ -297,28 +332,66 @@
     
   
   <!-- Modal -->
-  <div class="modal fade add-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade add-modal modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title fs-5" id="exampleModalLabel">Elem hozzáadása</h2>
+          
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+
+            <div class="modalUpload">
+                <div class="modalImage">
+
+                </div>
+                <div class="uploadDiv">
+                    <p></p>
+                    <button type="button" class="btn btn-secondary">Kép feltöltése</button>
+                    <p></p>
+                </div>
+
+            </div>
+
             <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+                <div class="container col-12 modalMain1">
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Név</label>
+                        <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp"required>
+                        <div id="nameHelp" class="form-text">A ruhanem neve</div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="priceInput" class="form-label">Ár</label>
+                          <input type="number" class="form-control" id="priceInput" aria-describedby="priceHelp"required>
+                          <div id="priceHelp" class="form-text">A ruhanem ára</div>
+                        </div>
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
+                <div class="modalMain2"> 
+                    <select class="form-select" aria-label="Default select example" required>
+                        <option value="bestSellers">Best seller</option>
+                        <option value="ujTermekek">Új termékek</option>
+                        <option value="polok">Pólok</option>
+                        <option value="puloverek">Pulóverek</option>
+                        <option value="nadragok">Nadrágok</option>
+                        <option value="cipok">Cipók</option>
+                        <option value="sapkak">Sapkák</option>
+                        <option value="kiegeszitok">Kiegészítők</option>
+                      </select>
+
+
                 </div>
-              </form>
+                <div class="ellenorzes">
+                    <p></p>
+                    <button type="submit" class="btn btn-success">Ellenörzés</button>
+                    <p></p>
+                </div>
+                  
+            </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Közlés</button>
+          <button type="button" class="btn btn-success">Közlés</button>
         </div>
       </div>
     </div>
