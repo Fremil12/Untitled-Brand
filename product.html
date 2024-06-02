@@ -68,7 +68,7 @@
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="flotatingName" placeholder="A ruhanem neve">
                             <label for="flotatingName">Név</label>
-                          </div>
+                        </div>
                           <div class="form-floating">
                             <input type="number" class="form-control" id="flotatingPrice" placeholder="A ruhanem ára">
                             <label for="flotatingPrice">Ár</label>
@@ -347,10 +347,13 @@
                     <img class="uploadedImg img-fluid small">
                 </div>
                 <div class="uploadDiv">
-                    <p><label for="">Image name</label><input type="text" class="namebox"><label class="extlab"></label><br><br></p>
-                    <p class="upProgress"> </p>
+                    <div class="form-floating">
+                        <input type="text" class="namebox form-control" id="floatingPicture" >
+                        <label for="floatingPicture" id="floatingPictureLabel">Kép neve</label>
+                        <p class="upProgress"></p>
+                    </div>
+                    <p class="extlab"> </p>
                     <button type="button" class="btn btn-secondary selbtn">Kép feltöltése</button>
-                    <p></p>
                 </div>
 
             </div>
