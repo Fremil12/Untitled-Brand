@@ -203,7 +203,9 @@ onSnapshot(colRef, (querySnapshot) => {
     datas.forEach(data => {
         document.querySelector(".shop").innerHTML += `
         <div class="shopItem col-md-3 minden ${data.tag} ${data.id}">
+            <div class="shopItemPicture">
             <img class="img-${data.imgName} small">
+            </div>
             <div class="shopItemDesc">
                 <p class="name">${data.name}</p>
                 <p class="price">${toPrice(data.price)}ft</p>
@@ -214,7 +216,13 @@ onSnapshot(colRef, (querySnapshot) => {
         </div>`;
         setUrl(data.imgName);
     });
+    setAdminStatus(datas);
 
+}, (error) => {
+    console.error("Error getting documents:", error);
+});
+
+function setAdminStatus(datas){
     let shopItems;
     const adminSwitch = document.querySelector(".admin-switch");
     let adminStatus = false;
@@ -237,18 +245,15 @@ onSnapshot(colRef, (querySnapshot) => {
                         </button>
                         <form class="dropdown-menu p-4">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control flotatingName" placeholder="A ruhanem neve" value="${datas[index].name}">
+                                <input type="text" class="form-control flotatingName" placeholder="A ruhanem neve" value="${datas[index].name}" required>
                                 <label for="flotatingName">Név</label>
                             </div>
                             <div class="form-floating">
-                                <input type="number" class="form-control flotatingPrice" placeholder="A ruhanem ára" value="${datas[index].price}">
+                                <input type="number" class="form-control flotatingPrice" placeholder="A ruhanem ára" value="${datas[index].price}" required>
                                 <label for="flotatingPrice">Ár</label>
                                 <br>
                             </div>
                             <select class="form-select" aria-label="Default select example" required>
-                                <option selected>Kategóriák</option>
-                                <option value="bestSellers">Best seller</option>
-                                <option value="ujTermekek">Új termékek</option>
                                 <option value="polok">Pólok</option>
                                 <option value="puloverek">Pulóverek</option>
                                 <option value="nadragok">Nadrágok</option>
@@ -283,6 +288,7 @@ onSnapshot(colRef, (querySnapshot) => {
                     const editedPrice = item.querySelector('.flotatingPrice').value;
                     const editedTag = item.querySelector('.form-select').value;
                     updateData(setBtnId, { name:editedName, price:editedPrice, tag:editedTag });
+                    setAdminStatus(datas);
                 });
             });
 
@@ -294,11 +300,7 @@ onSnapshot(colRef, (querySnapshot) => {
             });
         }
     });
-}, (error) => {
-    console.error("Error getting documents:", error);
-});
-
-
+}
 
 
 

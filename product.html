@@ -21,7 +21,7 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body data-bs-theme="dark">
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
@@ -59,30 +59,35 @@
             <div></div>
             <div></div>
         </div>
-        <div class="">
-            <div>
-                <label for="">Admin felület</label>
-               
-                <div class="form-check form-switch">
-                    <input class="form-check-input admin-switch" type="checkbox" role="switch"> 
-                    <span  class="ms-5 font-green fs-5 plus-button-container"></span>
-                </div>
 
-            </div>
-        </div>
         <div class="mainpage">
 
-            <div class="sidebar">
+            <div class="mobileSidebar">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div class="sidebar hidden">
                 <p class="sidebarItems minden sidebarSelected">Összes termék</p>
                 <p class="sidebarItems bestSellers">Bestsellers</p>
-                <p class="sidebarItems ujTermekek">Új termékek</p>
                 <p class="sidebarItems polok">Pólók</p>
                 <p class="sidebarItems puloverek">Pulóverek</p>
                 <p class="sidebarItems cipok">Cipók</p>
                 <p class="sidebarItems nadragok">Nadrágok</p>
                 <p class="sidebarItems sapkak">Sapkák</p>
                 <p class="sidebarItems kiegeszitok">Kiegészítők</p>
-
+                <div class="">
+                    <div>
+                        
+                       
+                        <div class="form-check form-switch">
+                            <input class="btn btn-secondary admin-switch" type="button" value="Admin felület"> 
+                            <span  class="ms-5 font-green fs-5 plus-button-container"> </span>
+                        </div>
+        
+                    </div>
+                </div>
             </div>
             <div class="mainContent">
                 <div class="sorting">
@@ -91,6 +96,9 @@
                 </div>
                 <div class="container-fluid">
                     <div class="shop row center">
+                      
+                    </div>
+                    <div class="row center">
                         <div class="shopItem col-md-3 minden bestSellers">
                             <img src="../images/ruhaLayer1.png" class="img-fluid">
                             <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
@@ -101,8 +109,8 @@
                             </div>
                         </div>
                         <div class="shopItem col-md-3 minden bestSellers">
-                            <img src="../images/ruhaLayer1.png" class="">
-                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
                                 <a href="../aloldalak/nem.html"><button class="btn btn-green"
@@ -110,8 +118,8 @@
                             </div>
                         </div>
                         <div class="shopItem col-md-3 minden bestSellers">
-                            <img src="../images/ruhaLayer1.png" class="">
-                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
                                 <a href="../aloldalak/nem.html"><button class="btn btn-green"
@@ -119,8 +127,8 @@
                             </div>
                         </div>
                         <div class="shopItem col-md-3 minden bestSellers">
-                            <img src="../images/ruhaLayer1.png" class="">
-                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
                                 <a href="../aloldalak/nem.html"><button class="btn btn-green"
@@ -128,8 +136,8 @@
                             </div>
                         </div>
                         <div class="shopItem col-md-3 minden bestSellers">
-                            <img src="../images/ruhaLayer1.png" class="">
-                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
                                 <a href="../aloldalak/nem.html"><button class="btn btn-green"
@@ -137,8 +145,8 @@
                             </div>
                         </div>
                         <div class="shopItem col-md-3 minden bestSellers">
-                            <img src="../images/ruhaLayer1.png" class="">
-                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
                                 <a href="../aloldalak/nem.html"><button class="btn btn-green"
@@ -146,106 +154,43 @@
                             </div>
                         </div>
                         <div class="shopItem col-md-3 minden bestSellers">
-                            <img src="../images/ruhaLayer1.png" class="">
-                            <img src="../images/ruhaLayer2.png" class=" shopitemImage">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
                                 <a href="../aloldalak/nem.html"><button class="btn btn-green"
                                         type="button">Megveszem</button></a>
                             </div>
                         </div>
-                        <div class="shopItem col-md-3 minden polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
                             <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
                             </div>
-
                         </div>
-                        <div class="shopItem col-md-3 minden  polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
                             <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
                             </div>
-
                         </div>
-                        <div class="shopItem col-md-3 minden  polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
+                        <div class="shopItem col-md-3 minden bestSellers">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
                             <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
                             <div class="shopItemDesc">
                                 <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
                             </div>
-
-                        </div>
-                        <div class="shopItem col-md-3 minden  polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
-                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
-                            <div class="shopItemDesc">
-                                <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="shopItem col-md-3 minden  polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
-                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
-                            <div class="shopItemDesc">
-                                <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="shopItem col-md-3 minden  polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
-                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
-                            <div class="shopItemDesc">
-                                <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="shopItem col-md-3 minden  polok ">
-
-                            <img src="../images/ruhaLayer1.png" class="img-flud">
-                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
-                            <div class="shopItemDesc">
-                                <p>Ruhanem</p>
-                                <div class="buttons">
-                                    <a href="../aloldalak/nem.html"><button class="btn btn-green"
-                                            type="button">Megveszem</button></a>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>
@@ -343,8 +288,6 @@
                 </div>
                 <div class="modalMain2"> 
                     <select class="form-select tag-select" aria-label="Default select example" required>
-                        <option value="bestSellers">Best seller</option>
-                        <option value="ujTermekek">Új termékek</option>
                         <option value="polok">Pólok</option>
                         <option value="puloverek">Pulóverek</option>
                         <option value="nadragok">Nadrágok</option>
@@ -357,14 +300,11 @@
                 </div>
                 <div class="ellenorzes">
                     <p></p>
-                    <button type="submit" class="btn btn-success">Ellenörzés</button>
+                    <button type="button" class="btn btn-success addwithimg">Közlés</button>
                     <p></p>
                 </div>
                   
             </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success addwithimg">Közlés</button>
         </div>
       </div>
     </div>
