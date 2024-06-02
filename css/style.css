@@ -271,9 +271,7 @@ input:focus, textarea:focus{
 .buttons{
 }
 
-@media only screen and (max-width: 600px) {
-    
-}
+
 
 .shop{
     overflow: scroll;
@@ -478,10 +476,66 @@ margin-top: 15px;
     .mobileSidebar{
         display: grid;
     }
+
+    .rateText{
+        text-align: center;
+    }
+    
 }
 
 .category-label{
     margin-top: 20px;
 }
 
-.form-switch{}
+
+.rateText{
+    margin: 10px 0px 20px 0px;
+}
+
+.rateProfile{
+    background-color: #111;
+    height: 150px;
+    width: 150px;
+}
+
+.rateSection div:nth-child(1){
+    margin-top: 10px;
+}
+
+.rateSection div:nth-child(1) div:nth-child(1){
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rateProfile{
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.rateStars{
+text-align: center;
+}
+
+.rateStars img{
+    margin: auto;
+    width: 35px;
+    height: 35px;
+    background-color: orange;
+}
+
+.rateTitle{
+margin-top: 44px;
+}
+
+.sideContent{
+    margin-top: 45px;
+}
+
+.sideContent div{
+    margin: 20px 0px;
+}
