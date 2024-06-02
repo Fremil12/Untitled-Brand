@@ -162,7 +162,7 @@ function addData() {
 
 function updateData(id,newData) {
     const docRef = doc(db, "datas", id);
-    
+    alert(newData.tag)
     updateDoc(docRef, newData)
       .then(() => {
         console.log("Document successfully updated!");
@@ -272,11 +272,10 @@ onSnapshot(colRef, (querySnapshot) => {
                     event.preventDefault();
                     const setBtnId = setBtn.classList[3];
                     const item = setBtn.closest('.shopItem');
-                    const name = item.querySelector('.flotatingName').value;
-                    const price = item.querySelector('.flotatingPrice').value;
-                    const category = item.querySelector('.form-select').value;
-
-                    updateData(setBtnId, { name, price, category });
+                    const editedName = item.querySelector('.flotatingName').value;
+                    const editedPrice = item.querySelector('.flotatingPrice').value;
+                    const editedTag = item.querySelector('.form-select').value;
+                    updateData(setBtnId, { name:editedName, price:editedPrice, tag:editedTag });
                 });
             });
 
