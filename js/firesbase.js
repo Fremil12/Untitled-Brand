@@ -174,8 +174,7 @@ function updateData(id,newData) {
 
 
 // Delete data
-function deleteData() {
-    id = document.querySelector(".id").value;
+function deleteData(id) {
     const docRef = doc(db, "datas", id);
     deleteDoc(docRef)
         .then(() => {
@@ -260,9 +259,17 @@ onSnapshot(colRef, (querySnapshot) => {
                             <br>
                             <button class="btn btn-success set-btn ${datas[index].id}">Szerkesztés</button>
                         </form>
-                        <input type="button" class="button btn btn-danger" value="törlés">
+                        <input type="button" class="btn btn-danger del-btn ${datas[index].id}" value="törlés">
                     </div>`;
                 }
+            });
+            const delBtns = document.querySelectorAll(".del-btn");
+            delBtns.forEach(delBtn => {
+                delBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const delBtnId = delBtn.classList[3];
+                    deleteData(delBtnId);
+                });
             });
 
             // Add event listeners to the edit buttons
