@@ -344,9 +344,13 @@ input:focus, textarea:focus{
 }
 
 .modalImage{
+    overflow: hidden;
     height: 500px;
     background-color: #ddd;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .uploadDiv{
@@ -360,4 +364,10 @@ input:focus, textarea:focus{
     display: grid;
     grid-template-columns: auto 140px auto;
     text-align: center;
+}
+
+.modalImage img{
+    margin: auto;
+    height: 100%;
+    object-fit: cover;
 }
