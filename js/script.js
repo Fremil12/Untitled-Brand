@@ -1,44 +1,23 @@
 
 
 const sidebarItems = document.querySelectorAll(".sidebarItems");
-const shopItems = document.querySelectorAll(".shopItem");
 const categoryLabel = document.querySelector(".category-label");
-const adminSwitch = document.querySelector(".admin-switch");
-const buttonContainers = document.querySelectorAll(".buttons");
+let buttonContainers;
 const plusButtonContainer=document.querySelector(".plus-button-container");
-let adminStatus=false;
+
+
+
+function getSelectedValue(sel) {
+    return(sel.options[sel.selectedIndex].value);
+  }
+  
 
 
 
 
-
-
-adminSwitch.addEventListener("click", function () {
-    if (!adminStatus) {
-        adminStatus=true;
-        plusButtonContainer.innerHTML="<i class=\"bi bi-clipboard-plus-fill\"  data-bs-toggle=\"modal\" data-bs-target=\".add-modal\"></i>"
-
-        
-        shopItems.forEach((shopItem) => {
-            if (!shopItem.classList.contains("bestSellers")) {
-                buttonContainers.forEach((buttonContainer) => {
-                    buttonContainer.innerHTML = "<br><input  type=\"button\" class=\"button btn btn-secondary\" value=\"szerkesztés\"><input  type=\"button\" class=\"button btn btn-danger\" value=\"törlés\">";
-                })
-
-            }
-        })
-    }
-    else {
-        adminStatus=false;
-        plusButtonContainer.innerHTML="";
-        buttonContainers.forEach((buttonContainer) => {
-            buttonContainer.innerHTML = " <a href=\"../aloldalak/nem.html\"><button class=\"btn btn-green\" type=\"button\">Megveszem</button></a>";
-        })
-    }
-
-});
 sidebarItems.forEach((sidebarItem) => {
     sidebarItem.addEventListener("click", function () {
+        shopItems= document.querySelectorAll(".shopItem")
         sidebarItems.forEach((sidebarItem) => sidebarItem.classList.remove("sidebarSelected"));
         sidebarItem.classList.add("sidebarSelected");
         categoryLabel.innerHTML = sidebarItem.innerHTML;
@@ -65,3 +44,11 @@ document.querySelector(".logo").addEventListener("click", function () {
     }
 });
 
+
+function toPrice(x) {
+    let price = String(x).split("");
+    for (let i = price.length; i > 0; i -= 3) {
+        price.splice(i, 0, " ");
+    }
+    return price.join("");
+}

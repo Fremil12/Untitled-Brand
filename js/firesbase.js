@@ -25,8 +25,6 @@ let name, tag, price, imgname, id;
 //kép ---------------------------------------
 
 
-
-
 var files = [];
 var reader = new FileReader();
 
@@ -105,28 +103,28 @@ async function UploadProcess() {
 
 
 //képek lekéréséhez
-function setUrl(id){
+function setUrl(id) {
     const docRef = doc(db, "ImageLinks", id);
     onSnapshot(docRef, (doc) => {
         if (doc.exists()) {
 
-            let url=doc.data().ImageURL;
-            document.querySelector(".img-" + id).src=url;
+            let url = doc.data().ImageURL;
+            document.querySelector(".img-" + id).src = url;
         } else {
-        console.log("No such document!");
+            console.log("No such document!");
         }
     }, (error) => {
         console.error("Error getting document:", error);
     });
-    }
+}
 
 
 //szöveges adatok --------------------------
 
 function addDataWithId() {
-    name = document.querySelector(".name").value;
-    tag = "érték"
-    price = document.querySelector(".price").value;
+    name = document.querySelector(".name-add").value;
+    tag = getSelectedValue(document.querySelector(".tag-select"));
+    price = document.querySelector(".price-add").value;
     const docRef = doc(db, "datas", String(id));
     setDoc(docRef, {
         name: name,
@@ -142,46 +140,154 @@ function addDataWithId() {
         });
 }
 
+function addData() {
+    name = document.querySelector(".name-add").value;
+    tag = getSelectedValue(document.querySelector(".tag-select"));
+    price = document.querySelector(".price-add").value;
+    imgName: namebox.value,
+    console.log(name+" "+tag+" "+price)
+    addDoc(colRef, {
+      name: name,
+      tag: tag,
+      price: price,
+      imgName: namebox.value,
+    })
+      .then((docRef) => {
+        console.log("Document written with ID", docRef.id);
+      })
+      .catch((error) => {
+        console.error("Error adding document:", error);
+      });
+  }
 
-
-
-
-
-
-
+function updateData(id,newData) {
+    const docRef = doc(db, "datas", id);
+    
+    updateDoc(docRef, newData)
+      .then(() => {
+        console.log("Document successfully updated!");
+      })
+      .catch((error) => {
+        console.error("Error updating document:", error);
+      });
+  }
 
 
 // Delete data
 function deleteData() {
-    id = document.querySelector(".id").value; 
+    id = document.querySelector(".id").value;
     const docRef = doc(db, "datas", id);
     deleteDoc(docRef)
-      .then(() => {
-        console.log("Document deleted with ID", id);
-      })
-      .catch((error) => {
-        console.error("Error deleting document:", error);
-      });
-  }
+        .then(() => {
+            console.log("Document deleted with ID", id);
+        })
+        .catch((error) => {
+            console.error("Error deleting document:", error);
+        });
+}
 
 // Real-time listener for all documents
+
+
+
+// Listen for real-time updates to the collection
 onSnapshot(colRef, (querySnapshot) => {
     let datas = [];
     querySnapshot.docs.forEach((doc) => {
         datas.push({ ...doc.data(), id: doc.id });
     });
     console.log(datas);
-    document.querySelector(".shop").innerHTML = ""; 
-    for (let i = 0; i < datas.length; i++) {
-        document.querySelector(".shop").innerHTML += "<div class=\"item\">" +
-            "<img class=\"img-" + datas[i].imgName + " small\"><br>" + 
-            datas[i].name + " " + datas[i].description + " " + 
-            datas[i].price + " " + datas[i].imgName + " - " + datas[i].id + "<br></div>";  
-       
-        setUrl(datas[i].imgName)
-    }
-    id=datas.length;
+    // Clear the shop container
+    document.querySelector(".shop").innerHTML = "";
     
+    // Populate shop items
+    datas.forEach(data => {
+        document.querySelector(".shop").innerHTML += `
+        <div class="shopItem col-md-3 minden ${data.tag} ${data.id}">
+            <img class="img-${data.imgName} small">
+            <div class="shopItemDesc">
+                <p class="name">${data.name}</p>
+                <p class="price">${toPrice(data.price)}ft</p>
+                <div class="buttons">
+                    <a href="../aloldalak/nem.html"><button class="btn btn-green" type="button">Megveszem</button></a>
+                </div>
+            </div>
+        </div>`;
+        setUrl(data.imgName);
+    });
+
+    let shopItems;
+    const adminSwitch = document.querySelector(".admin-switch");
+    let adminStatus = false;
+
+    // Toggle admin mode
+    adminSwitch.addEventListener("click", () => {
+        shopItems = document.querySelectorAll(".shopItem");
+        const buttonContainers = document.querySelectorAll(".buttons");
+
+        if (!adminStatus) {
+            adminStatus = true;
+            plusButtonContainer.innerHTML = `<i class="bi bi-clipboard-plus-fill" data-bs-toggle="modal" data-bs-target=".add-modal"></i>`;
+
+            shopItems.forEach((item, index) => {
+                if (!item.classList.contains("bestSellers")) {
+                    buttonContainers[index].innerHTML = `
+                    <div class="dropdown inline">
+                        <button type="button" class="btn btn-secondary dropdown-toggle set-dropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            Szerkesztés
+                        </button>
+                        <form class="dropdown-menu p-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control flotatingName" placeholder="A ruhanem neve" value="${datas[index].name}">
+                                <label for="flotatingName">Név</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="number" class="form-control flotatingPrice" placeholder="A ruhanem ára" value="${datas[index].price}">
+                                <label for="flotatingPrice">Ár</label>
+                                <br>
+                            </div>
+                            <select class="form-select" aria-label="Default select example" required>
+                                <option selected>Kategóriák</option>
+                                <option value="bestSellers">Best seller</option>
+                                <option value="ujTermekek">Új termékek</option>
+                                <option value="polok">Pólok</option>
+                                <option value="puloverek">Pulóverek</option>
+                                <option value="nadragok">Nadrágok</option>
+                                <option value="cipok">Cipók</option>
+                                <option value="sapkak">Sapkák</option>
+                                <option value="kiegeszitok">Kiegészítők</option>
+                            </select>
+                            <br>
+                            <button class="btn btn-success set-btn ${datas[index].id}">Szerkesztés</button>
+                        </form>
+                        <input type="button" class="button btn btn-danger" value="törlés">
+                    </div>`;
+                }
+            });
+
+            // Add event listeners to the edit buttons
+            const setBtns = document.querySelectorAll(".set-btn");
+            setBtns.forEach(setBtn => {
+                setBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const setBtnId = setBtn.classList[3];
+                    const item = setBtn.closest('.shopItem');
+                    const name = item.querySelector('.flotatingName').value;
+                    const price = item.querySelector('.flotatingPrice').value;
+                    const category = item.querySelector('.form-select').value;
+
+                    updateData(setBtnId, { name, price, category });
+                });
+            });
+
+        } else {
+            adminStatus = false;
+            plusButtonContainer.innerHTML = "";
+            buttonContainers.forEach(buttonContainer => {
+                buttonContainer.innerHTML = `<a href="../aloldalak/nem.html"><button class="btn btn-green" type="button">Megveszem</button></a>`;
+            });
+        }
+    });
 }, (error) => {
     console.error("Error getting documents:", error);
 });
@@ -192,8 +298,5 @@ onSnapshot(colRef, (querySnapshot) => {
 
 document.querySelector(".addwithimg").addEventListener("click", function () {
     UploadProcess();
-    addDataWithId();
+    addData();
 });
-
-
-

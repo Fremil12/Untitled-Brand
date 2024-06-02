@@ -60,45 +60,12 @@
         <div class="">
             <div>
                 <label for="">Admin felület</label>
-                <div class="dropdown">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                      Szerkesztés
-                    </button>
-                    <form class="dropdown-menu p-4">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="flotatingName" placeholder="A ruhanem neve">
-                            <label for="flotatingName">Név</label>
-                        </div>
-                          <div class="form-floating">
-                            <input type="number" class="form-control" id="flotatingPrice" placeholder="A ruhanem ára">
-                            <label for="flotatingPrice">Ár</label>
-                            <br>
-                          </div>
-                              <select class="form-select" aria-label="Default select example" required>
-                                <option selected>Kategóriák</option>
-                                <option value="bestSellers">Best seller</option>
-                                <option value="ujTermekek">Új termékek</option>
-                                <option value="polok">Pólok</option>
-                                <option value="puloverek">Pulóverek</option>
-                                <option value="nadragok">Nadrágok</option>
-                                <option value="cipok">Cipók</option>
-                                <option value="sapkak">Sapkák</option>
-                                <option value="kiegeszitok">Kiegészítők</option>
-                              </select>
-                              <br>
-                              <button type="submit" class="btn btn-success">Szerkesztés</button>
-                            </div>
-                        </div>
-                        
-                      </div>
-
-                    </form>
-                  </div>
+               
                 <div class="form-check form-switch">
                     <input class="form-check-input admin-switch" type="checkbox" role="switch"> 
                     <span  class="ms-5 font-green fs-5 plus-button-container"></span>
                 </div>
-               
+
             </div>
         </div>
         <div class="mainpage">
@@ -363,17 +330,17 @@
                 <div class="container col-12 modalMain1">
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Név</label>
-                        <input type="text" class="form-control name" id="nameInput" aria-describedby="nameHelp"required>
+                        <input type="text" class="form-control name-add" id="nameInput" aria-describedby="nameHelp"required>
                         <div id="nameHelp" class="form-text">A ruhanem neve</div>
                       </div>
                       <div class="mb-3">
                           <label for="priceInput" class="form-label">Ár</label>
-                          <input type="number" class="form-control price" id="priceInput" aria-describedby="priceHelp"required>
+                          <input type="number" class="form-control price-add" id="priceInput" aria-describedby="priceHelp"required>
                           <div id="priceHelp" class="form-text">A ruhanem ára</div>
                         </div>
                 </div>
                 <div class="modalMain2"> 
-                    <select class="form-select" aria-label="Default select example" required>
+                    <select class="form-select tag-select" aria-label="Default select example" required>
                         <option value="bestSellers">Best seller</option>
                         <option value="ujTermekek">Új termékek</option>
                         <option value="polok">Pólok</option>
