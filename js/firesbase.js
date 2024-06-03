@@ -145,6 +145,7 @@ function updateData(id, newData) {
     const docRef = doc(db, "datas", id);
     updateDoc(docRef, newData)
         .then(() => {
+            imgToModal();
             console.log("Document successfully updated!");
         })
         .catch((error) => {
@@ -277,7 +278,7 @@ function setAdminStatus(datas) {
 
             // Add event listeners to the edit buttons
             const setBtns = document.querySelectorAll(".set-btn");
-            setBtns.forEach(setBtn => {
+            setBtns.forEach((setBtn, index) => {
                 setBtn.addEventListener("click", function (event) {
                     event.preventDefault();
                     const setBtnId = setBtn.classList[3];
@@ -285,8 +286,8 @@ function setAdminStatus(datas) {
                     const editedName = item.querySelector('.flotatingName').value;
                     const editedPrice = item.querySelector('.flotatingPrice').value;
                     const editedTag = item.querySelector('.form-select').value;
-                    let editNameHiba = document.querySelector(".edit-name-hiba");
-                    let editPriceHiba = document.querySelector(".edit-price-hiba");
+                    let editNameHiba = document.querySelectorAll(".edit-name-hiba")[index];
+                    let editPriceHiba = document.querySelectorAll(".edit-price-hiba")[index];
                     editNameHiba.innerHTML = "";
                     editPriceHiba.innerHTML = "";
                     if(editedName==""&&editedPrice==""){
