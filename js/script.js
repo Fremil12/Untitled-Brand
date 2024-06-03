@@ -3,21 +3,21 @@
 const sidebarItems = document.querySelectorAll(".sidebarItems");
 const categoryLabel = document.querySelector(".category-label");
 let buttonContainers;
-const plusButtonContainer=document.querySelector(".plus-button-container");
+const plusButtonContainer = document.querySelector(".plus-button-container");
 
 
 
 function getSelectedValue(sel) {
-    return(sel.options[sel.selectedIndex].value);
-  }
-  
+    return (sel.options[sel.selectedIndex].value);
+}
+
 
 
 
 
 sidebarItems.forEach((sidebarItem) => {
     sidebarItem.addEventListener("click", function () {
-        shopItems= document.querySelectorAll(".shopItem")
+        shopItems = document.querySelectorAll(".shopItem")
         sidebarItems.forEach((sidebarItem) => sidebarItem.classList.remove("sidebarSelected"));
         sidebarItem.classList.add("sidebarSelected");
         categoryLabel.innerHTML = sidebarItem.innerHTML;
@@ -52,3 +52,6 @@ function toPrice(x) {
     }
     return price.join("");
 }
+
+
+

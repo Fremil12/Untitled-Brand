@@ -96,8 +96,35 @@ async function UploadProcess() {
     );
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 
+sleep(200).then(() => { 
+    var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+let imgs = document.querySelectorAll(".img-to-modal");
+let modalImg = document.getElementById("img01");
+let captionText = document.getElementById("caption");
+   imgs.forEach(img => {
+    img.onclick = function () {
+        modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+    }
+});
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+
+ });
 
 
 
@@ -203,7 +230,7 @@ onSnapshot(colRef, (querySnapshot) => {
         document.querySelector(".shop").innerHTML += `
         <div class="shopItem col-md-3 minden ${data.tag} ${data.id} sizeChange">
             <div class="shopItemPicture">
-            <img class="img-${data.imgName} small">
+            <img class="img-${data.imgName} small img-to-modal" alt="${data.name}">
             </div>
             <div class="shopItemDesc">
                 <p class="name">${data.name}</p>
@@ -214,7 +241,9 @@ onSnapshot(colRef, (querySnapshot) => {
             </div>
         </div>`;
         setUrl(data.imgName);
+
     });
+
     setAdminStatus(datas);
 
 }, (error) => {
@@ -316,39 +345,63 @@ function setAdminStatus(datas) {
 
 
 document.querySelector(".addwithimg").addEventListener("click", function () {
-    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && namebox.value=="") {
-        let modalNameHiba = document.querySelector(".ModalNameHiba");
+    let modalNameHiba = document.querySelector(".ModalNameHiba");
+    let modalPictureHiba = document.querySelector(".modalPictureHiba");
+    let modalPriceHiba = document.querySelector(".ModalPriceHiba");
+    let extlab=document.querySelector(".extlab");
+    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && (namebox.value == ""|| extlab.value=="") ) {
+        
         modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
         modalNameHiba.classList.add("text-danger");
 
-        let modalPriceHiba = document.querySelector(".ModalPriceHiba");
         modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
         modalPriceHiba.classList.add("text-danger");
 
-        let modalPictureHiba=document.querySelector(".modalPictureHiba");
-        modalPictureHiba.innerHTML = "A mezőt ki kell tölteni!";
+        modalPictureHiba.innerHTML = "Nincs kiválasztva kép!";
         modalPictureHiba.classList.add("text-danger");
 
     }
     else if (document.querySelector(".name-add").value == "") {
-        let modalNameHiba = document.querySelector(".ModalNameHiba");
+
+        modalPriceHiba.innerHTML = "";
+        modalPriceHiba.classList.remove("text-danger");
+
+        modalPictureHiba.innerHTML = "";
+        modalPictureHiba.classList.remove("text-danger");
         modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
         modalNameHiba.classList.add("text-danger");
     }
     else if (document.querySelector(".price-add").value == "") {
-        let modalPriceHiba = document.querySelector(".ModalPriceHiba");
+        modalNameHiba.innerHTML = "";
+        modalNameHiba.classList.remove("text-danger");
+
+        modalPictureHiba.innerHTML = "";
+        modalPictureHiba.classList.remove("text-danger");
         modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
         modalPriceHiba.classList.add("text-danger");
     }
-    else if(namebox.value==""||extlab.value==""){
-        let modalPictureHiba=document.querySelector(".modalPictureHiba");
-        modalPictureHiba.innerHTML = "Hibás kép!";
+    else if (namebox.value == "" || extlab.value == "") {
+        modalNameHiba.innerHTML = "";
+        modalNameHiba.classList.remove("text-danger");
+
+        modalPriceHiba.innerHTML = "";
+        modalPriceHiba.classList.remove("text-danger");
+
+
+        modalPictureHiba.innerHTML = "Nincs kiválasztva kép!";
         modalPictureHiba.classList.add("text-danger");
     }
 
     else {
 
+        modalNameHiba.innerHTML = "";
+        modalNameHiba.classList.remove("text-danger");
 
+        modalPriceHiba.innerHTML = "";
+        modalPriceHiba.classList.remove("text-danger");
+
+        modalPictureHiba.innerHTML = "";
+        modalPictureHiba.classList.remove("text-danger");
         UploadProcess();
         addData();
         document.querySelector(".ModalNameHiba").innerHTML = ""
