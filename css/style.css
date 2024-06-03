@@ -35,7 +35,11 @@ header {
 
 }
 .product-bg{
- background-image: url("/images/headerPicture.jpg");
+ background-image: url("/images/ize.jpg");
+}
+
+.aboutus-bg{
+    background-image: url("/images/videDesignCo.png");
 }
 * {
     font-family: "Poppins";
