@@ -195,7 +195,7 @@ onSnapshot(colRef, (querySnapshot) => {
         setUrl(data.imgName);
 
     });
-
+    imgToModal();
     setAdminStatus(datas);
 
 }, (error) => {
@@ -362,7 +362,7 @@ document.querySelector(".addwithimg").addEventListener("click", function () {
     modalNameHiba.innerHTML = "";
     modalPriceHiba.innerHTML = "";
     modalPictureHiba.innerHTML = "";
-    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && (namebox.value == ""|| extlab.value==undefined) ) {
+    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && (namebox.value == ""|| extlab.innerHTML=="") ) {
         modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
         modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
         modalPictureHiba.innerHTML = "Nincs kiválasztva kép!";
@@ -376,7 +376,7 @@ document.querySelector(".addwithimg").addEventListener("click", function () {
     else if (document.querySelector(".price-add").value <=0) {
         modalPriceHiba.innerHTML = "Hibás ár!";
     }
-    else if (namebox.value == "" || extlab.value == undefined) {
+    else if (namebox.value == "" || extlab.innerHTML == "") {
         modalPictureHiba.innerHTML = "Nincs kiválasztva kép!";
     }
     else {
