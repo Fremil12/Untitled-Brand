@@ -316,7 +316,6 @@ function setAdminStatus(datas) {
 
 
 document.querySelector(".addwithimg").addEventListener("click", function () {
-    alert(namebox.value)
     if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && namebox.value=="") {
         let modalNameHiba = document.querySelector(".ModalNameHiba");
         modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
@@ -342,7 +341,6 @@ document.querySelector(".addwithimg").addEventListener("click", function () {
         modalPriceHiba.classList.add("text-danger");
     }
     else if(namebox.value==""||extlab.value==""){
-        alert("hiba")
         let modalPictureHiba=document.querySelector(".modalPictureHiba");
         modalPictureHiba.innerHTML = "Hibás kép!";
         modalPictureHiba.classList.add("text-danger");
