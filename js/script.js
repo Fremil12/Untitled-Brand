@@ -12,7 +12,9 @@ function getSelectedValue(sel) {
 }
 
 
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
 
 sidebarItems.forEach((sidebarItem) => {
