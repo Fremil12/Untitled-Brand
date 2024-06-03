@@ -145,32 +145,31 @@ function addData() {
     tag = getSelectedValue(document.querySelector(".tag-select"));
     price = document.querySelector(".price-add").value;
     imgName: namebox.value,
-    console.log(name+" "+tag+" "+price)
+        console.log(name + " " + tag + " " + price)
     addDoc(colRef, {
-      name: name,
-      tag: tag,
-      price: price,
-      imgName: namebox.value,
+        name: name,
+        tag: tag,
+        price: price,
+        imgName: namebox.value,
     })
-      .then((docRef) => {
-        console.log("Document written with ID", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Error adding document:", error);
-      });
-  }
+        .then((docRef) => {
+            console.log("Document written with ID", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document:", error);
+        });
+}
 
-function updateData(id,newData) {
+function updateData(id, newData) {
     const docRef = doc(db, "datas", id);
-    alert(newData.tag)
     updateDoc(docRef, newData)
-      .then(() => {
-        console.log("Document successfully updated!");
-      })
-      .catch((error) => {
-        console.error("Error updating document:", error);
-      });
-  }
+        .then(() => {
+            console.log("Document successfully updated!");
+        })
+        .catch((error) => {
+            console.error("Error updating document:", error);
+        });
+}
 
 
 // Delete data
@@ -198,11 +197,11 @@ onSnapshot(colRef, (querySnapshot) => {
     console.log(datas);
     // Clear the shop container
     document.querySelector(".shop").innerHTML = "";
-    
+
     // Populate shop items
     datas.forEach(data => {
         document.querySelector(".shop").innerHTML += `
-        <div class="shopItem col-md-3 minden ${data.tag} ${data.id}">
+        <div class="shopItem col-md-3 minden ${data.tag} ${data.id} sizeChange">
             <div class="shopItemPicture">
             <img class="img-${data.imgName} small">
             </div>
@@ -222,7 +221,7 @@ onSnapshot(colRef, (querySnapshot) => {
     console.error("Error getting documents:", error);
 });
 
-function setAdminStatus(datas){
+function setAdminStatus(datas) {
     let shopItems;
     const adminSwitch = document.querySelector(".admin-switch");
     let adminStatus = false;
@@ -239,11 +238,11 @@ function setAdminStatus(datas){
             shopItems.forEach((item, index) => {
                 if (!item.classList.contains("bestSellers")) {
                     buttonContainers[index].innerHTML = `
-                    <div class="dropdown inline">
+                    <div class="dropup inline">
                         <button type="button" class="btn btn-secondary dropdown-toggle set-dropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             Szerkesztés
                         </button>
-                        <form class="dropdown-menu p-4">
+                        <form class="dropdown-menu p-4 szerkesztModal">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control flotatingName" placeholder="A ruhanem neve" value="${datas[index].name}" required>
                                 <label for="flotatingName">Név</label>
@@ -264,7 +263,19 @@ function setAdminStatus(datas){
                             <br>
                             <button class="btn btn-success set-btn ${datas[index].id}">Szerkesztés</button>
                         </form>
-                        <input type="button" class="btn btn-danger del-btn ${datas[index].id}" value="törlés">
+                        <div class="dropup inline">
+                        <button type="button" class="btn btn-danger set-dropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            Törlés
+                        </button>
+                        <form class="dropdown-menu p-4 torlesModal">
+                            <h3>Biztos hogy törlöd?</h3>
+                            <div class="center">
+                                <button class="btn btn-success del-btn ${datas[index].id} me-2">Igen</button>
+                                <button class="btn btn-danger ">Nem</button>
+                            </div>
+                
+                        </form>
+                    </div>
                     </div>`;
                 }
             });
@@ -287,7 +298,7 @@ function setAdminStatus(datas){
                     const editedName = item.querySelector('.flotatingName').value;
                     const editedPrice = item.querySelector('.flotatingPrice').value;
                     const editedTag = item.querySelector('.form-select').value;
-                    updateData(setBtnId, { name:editedName, price:editedPrice, tag:editedTag });
+                    updateData(setBtnId, { name: editedName, price: editedPrice, tag: editedTag });
                     setAdminStatus(datas);
                 });
             });
@@ -305,6 +316,44 @@ function setAdminStatus(datas){
 
 
 document.querySelector(".addwithimg").addEventListener("click", function () {
-    UploadProcess();
-    addData();
+    alert(namebox.value)
+    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && namebox.value=="") {
+        let modalNameHiba = document.querySelector(".ModalNameHiba");
+        modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
+        modalNameHiba.classList.add("text-danger");
+
+        let modalPriceHiba = document.querySelector(".ModalPriceHiba");
+        modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
+        modalPriceHiba.classList.add("text-danger");
+
+        let modalPictureHiba=document.querySelector(".modalPictureHiba");
+        modalPictureHiba.innerHTML = "A mezőt ki kell tölteni!";
+        modalPictureHiba.classList.add("text-danger");
+
+    }
+    else if (document.querySelector(".name-add").value == "") {
+        let modalNameHiba = document.querySelector(".ModalNameHiba");
+        modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
+        modalNameHiba.classList.add("text-danger");
+    }
+    else if (document.querySelector(".price-add").value == "") {
+        let modalPriceHiba = document.querySelector(".ModalPriceHiba");
+        modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
+        modalPriceHiba.classList.add("text-danger");
+    }
+    else if(namebox.value==""||extlab.value==""){
+        alert("hiba")
+        let modalPictureHiba=document.querySelector(".modalPictureHiba");
+        modalPictureHiba.innerHTML = "Hibás kép!";
+        modalPictureHiba.classList.add("text-danger");
+    }
+
+    else {
+
+
+        UploadProcess();
+        addData();
+        document.querySelector(".ModalNameHiba").innerHTML = ""
+    }
+
 });
