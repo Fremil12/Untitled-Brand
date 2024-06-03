@@ -189,6 +189,24 @@
                                         type="button">Megveszem</button></a>
                             </div>
                         </div>
+                        <div class="shopItem col-md-3 minden bestSellers sizeChange">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
+                        <div class="shopItem col-md-3 minden bestSellers sizeChange">
+                            <img src="../images/ruhaLayer1.png" class="img-fluid">
+                            <img src="../images/ruhaLayer2.png" class="img-fluid shopitemImage">
+                            <div class="shopItemDesc">
+                                <p>Ruhanem</p>
+                                <a href="../aloldalak/nem.html"><button class="btn btn-green"
+                                        type="button">Megveszem</button></a>
+                            </div>
+                        </div>
                         
                     </div>
                    
@@ -267,7 +285,7 @@
                         <label for="floatingPicture" id="floatingPictureLabel">Kép neve</label>
                     </div>
                     <p class="extlab"> </p>
-                    <p class="modalPictureHiba"></p>
+                    <p class="modalPictureHiba  text-danger"></p>
                     <p class="upProgress"></p>
 
                     <button type="button" class="btn btn-secondary selbtn">Kép feltöltése</button>
@@ -281,12 +299,12 @@
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Név*</label>
                         <input type="text" class="form-control name-add" id="nameInput" aria-describedby="nameHelp"required>
-                        <div id="nameHelp" class="form-text ModalNameHiba"> </div>
+                        <div id="nameHelp" class="form-text modalNameHiba text-danger"> </div>
                       </div>
                       <div class="mb-3">
                           <label for="priceInput" class="form-label">Ár*</label>
                           <input type="number" class="form-control price-add" id="priceInput" aria-describedby="priceHelp"required>
-                          <div id="priceHelp" class="form-text ModalPriceHiba"> </div>
+                          <div id="priceHelp" class="form-text modalPriceHiba  text-danger"> </div>
                         </div>
                 </div>
                 <div class="modalMain2"> 
@@ -315,95 +333,6 @@
 
 
 
-  <style>
-    
-    #myImg {
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    
-    #myImg:hover {opacity: 0.7;}
-    
-    /* The Modal (background) */
-    .img-modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      padding-top: 100px; /* Location of the box */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-    }
-    
-    /* Modal Content (image) */
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: auto;
-        max-width: 700px;
-        max-height: 80%;
-    }
-    
-    /* Caption of Modal Image */
-    #caption {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 700px;
-      text-align: center;
-      color: #ccc;
-      padding: 10px 0;
-      height: 150px;
-    }
-    
-    /* Add Animation */
-    .modal-content, #caption {  
-      -webkit-animation-name: zoom;
-      -webkit-animation-duration: 0.6s;
-      animation-name: zoom;
-      animation-duration: 0.6s;
-    }
-    
-    @-webkit-keyframes zoom {
-      from {-webkit-transform:scale(0)} 
-      to {-webkit-transform:scale(1)}
-    }
-    
-    @keyframes zoom {
-      from {transform:scale(0)} 
-      to {transform:scale(1)}
-    }
-    
-    /* The Close Button */
-    .close {
-      position: absolute;
-      top: 15px;
-      right: 35px;
-      color: #f1f1f1;
-      font-size: 40px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    
-    .close:hover,
-    .close:focus {
-      color: #bbb;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    
-    /* 100% Image Width on Smaller Screens */
-    @media only screen and (max-width: 700px){
-      .modal-content {
-        width: 100%;
-      }
-    }
-    </style>
 
 
 <div id="myModal" class="img-modal">

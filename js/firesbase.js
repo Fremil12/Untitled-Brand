@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/fireba
 //képekhez
 import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-storage.js";
 //szöveghez
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc, onSnapshot, updateDoc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAq7OU5i2WgamVcWwXtvLTjP20L5449HJo",
@@ -96,35 +96,7 @@ async function UploadProcess() {
     );
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
 
-
-sleep(200).then(() => { 
-    var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-let imgs = document.querySelectorAll(".img-to-modal");
-let modalImg = document.getElementById("img01");
-let captionText = document.getElementById("caption");
-   imgs.forEach(img => {
-    img.onclick = function () {
-        modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-    }
-});
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-
- });
 
 
 
@@ -148,24 +120,6 @@ function setUrl(id) {
 
 //szöveges adatok --------------------------
 
-function addDataWithId() {
-    name = document.querySelector(".name-add").value;
-    tag = getSelectedValue(document.querySelector(".tag-select"));
-    price = document.querySelector(".price-add").value;
-    const docRef = doc(db, "datas", String(id));
-    setDoc(docRef, {
-        name: name,
-        tag: tag,
-        price: price,
-        imgName: namebox.value,
-    })
-        .then(() => {
-            console.log("Document written with ID", id);
-        })
-        .catch((error) => {
-            console.error("Error adding document:", error);
-        });
-}
 
 function addData() {
     name = document.querySelector(".name-add").value;
@@ -213,9 +167,6 @@ function deleteData(id) {
 
 // Real-time listener for all documents
 
-
-
-// Listen for real-time updates to the collection
 onSnapshot(colRef, (querySnapshot) => {
     let datas = [];
     querySnapshot.docs.forEach((doc) => {
@@ -262,7 +213,7 @@ function setAdminStatus(datas) {
 
         if (!adminStatus) {
             adminStatus = true;
-            plusButtonContainer.innerHTML = `<i class="bi bi-clipboard-plus-fill" data-bs-toggle="modal" data-bs-target=".add-modal"></i>`;
+            plusButtonContainer.innerHTML = `<input type="button" value="Hozzáadás" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target=".add-modal"></i>`;
 
             shopItems.forEach((item, index) => {
                 if (!item.classList.contains("bestSellers")) {
@@ -275,10 +226,12 @@ function setAdminStatus(datas) {
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control flotatingName" placeholder="A ruhanem neve" value="${datas[index].name}" required>
                                 <label for="flotatingName">Név</label>
+                                <p class="edit-name-hiba text-danger"></p>
                             </div>
                             <div class="form-floating">
                                 <input type="number" class="form-control flotatingPrice" placeholder="A ruhanem ára" value="${datas[index].price}" required>
                                 <label for="flotatingPrice">Ár</label>
+                                <p class="edit-price-hiba text-danger"></p>
                                 <br>
                             </div>
                             <select class="form-select" aria-label="Default select example" required>
@@ -308,6 +261,11 @@ function setAdminStatus(datas) {
                     </div>`;
                 }
             });
+
+            
+          
+               imgToModal();
+             
             const delBtns = document.querySelectorAll(".del-btn");
             delBtns.forEach(delBtn => {
                 delBtn.addEventListener("click", function (event) {
@@ -327,8 +285,28 @@ function setAdminStatus(datas) {
                     const editedName = item.querySelector('.flotatingName').value;
                     const editedPrice = item.querySelector('.flotatingPrice').value;
                     const editedTag = item.querySelector('.form-select').value;
-                    updateData(setBtnId, { name: editedName, price: editedPrice, tag: editedTag });
-                    setAdminStatus(datas);
+                    let editNameHiba = document.querySelector(".edit-name-hiba");
+                    let editPriceHiba = document.querySelector(".edit-price-hiba");
+                    editNameHiba.innerHTML = "";
+                    editPriceHiba.innerHTML = "";
+                    if(editedName==""&&editedPrice==""){
+                        editNameHiba.innerHTML = "A mezőt ki kell tölteni!";
+                        editPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
+                    }
+                    else if(editedPrice<=0){
+                        editPriceHiba.innerHTML = "Hibás ár!";
+                    }
+                    else if(editedPrice==""){
+                        editPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
+                    }
+                    else if(editedName==""){
+                        editNameHiba.innerHTML = "A mezőt ki kell tölteni!";
+                    }
+                    else{
+
+                        updateData(setBtnId, { name: editedName, price: editedPrice, tag: editedTag });
+                        setAdminStatus(datas);
+                    }
                 });
             });
 
@@ -341,67 +319,68 @@ function setAdminStatus(datas) {
         }
     });
 }
-
-
-
-document.querySelector(".addwithimg").addEventListener("click", function () {
-    let modalNameHiba = document.querySelector(".ModalNameHiba");
-    let modalPictureHiba = document.querySelector(".modalPictureHiba");
-    let modalPriceHiba = document.querySelector(".ModalPriceHiba");
-    let extlab=document.querySelector(".extlab");
-    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && (namebox.value == ""|| extlab.value=="") ) {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  sleep(200).then(() => { 
+    imgToModal();
+  });
+function imgToModal(){
+    var modal = document.getElementById("myModal");
+            
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    let imgs = document.querySelectorAll(".img-to-modal");
+    let modalImg = document.getElementById("img01");
+    let captionText = document.getElementById("caption");
+       imgs.forEach(img => {
+        img.onclick = function () {
+            modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+        }
+    });
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
         
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+    
+    
+}
+
+
+
+
+//addwithimg input check
+document.querySelector(".addwithimg").addEventListener("click", function () {
+    let modalNameHiba = document.querySelector(".modalNameHiba");
+    let modalPictureHiba = document.querySelector(".modalPictureHiba");
+    let modalPriceHiba = document.querySelector(".modalPriceHiba");
+    let extlab=document.querySelector(".extlab");
+
+    modalNameHiba.innerHTML = "";
+    modalPriceHiba.innerHTML = "";
+    modalPictureHiba.innerHTML = "";
+    if (document.querySelector(".name-add").value == "" && document.querySelector(".price-add").value == "" && (namebox.value == ""|| extlab.value==undefined) ) {
         modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
-        modalNameHiba.classList.add("text-danger");
-
         modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
-        modalPriceHiba.classList.add("text-danger");
-
         modalPictureHiba.innerHTML = "Nincs kiválasztva kép!";
-        modalPictureHiba.classList.add("text-danger");
-
     }
     else if (document.querySelector(".name-add").value == "") {
-
-        modalPriceHiba.innerHTML = "";
-        modalPriceHiba.classList.remove("text-danger");
-
-        modalPictureHiba.innerHTML = "";
-        modalPictureHiba.classList.remove("text-danger");
         modalNameHiba.innerHTML = "A mezőt ki kell tölteni!";
-        modalNameHiba.classList.add("text-danger");
     }
     else if (document.querySelector(".price-add").value == "") {
-        modalNameHiba.innerHTML = "";
-        modalNameHiba.classList.remove("text-danger");
-
-        modalPictureHiba.innerHTML = "";
-        modalPictureHiba.classList.remove("text-danger");
         modalPriceHiba.innerHTML = "A mezőt ki kell tölteni!";
-        modalPriceHiba.classList.add("text-danger");
     }
-    else if (namebox.value == "" || extlab.value == "") {
-        modalNameHiba.innerHTML = "";
-        modalNameHiba.classList.remove("text-danger");
-
-        modalPriceHiba.innerHTML = "";
-        modalPriceHiba.classList.remove("text-danger");
-
-
+    else if (document.querySelector(".price-add").value <=0) {
+        modalPriceHiba.innerHTML = "Hibás ár!";
+    }
+    else if (namebox.value == "" || extlab.value == undefined) {
         modalPictureHiba.innerHTML = "Nincs kiválasztva kép!";
-        modalPictureHiba.classList.add("text-danger");
     }
-
     else {
-
-        modalNameHiba.innerHTML = "";
-        modalNameHiba.classList.remove("text-danger");
-
-        modalPriceHiba.innerHTML = "";
-        modalPriceHiba.classList.remove("text-danger");
-
-        modalPictureHiba.innerHTML = "";
-        modalPictureHiba.classList.remove("text-danger");
         UploadProcess();
         addData();
         document.querySelector(".ModalNameHiba").innerHTML = ""
